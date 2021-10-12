@@ -9,14 +9,17 @@ import {
   } from '@material-ui/core'
 
 const PassGen: React.FC = () => {
+    // states
     const [passLen, setPassLen] = useState(8)
     const [config, setConfig] = useState(['lowercase'])
 
+    // functions
     const handleConfig = (_event: any, newConfig: any) => {
         setConfig(newConfig)
     }
 
     const handleLenChange = (event: any) => {
+        // handles the range of 0 to 256 for event.target.value
         const newVal = Math.min(
             Math.max(Number(event.target.value), 0), 256
         )
