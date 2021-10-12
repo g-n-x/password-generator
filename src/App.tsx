@@ -1,9 +1,14 @@
 import React from 'react';
 import PassGen from './components/PassGen'
+import {
+  Container
+} from '@material-ui/core'
 
 const App: React.FC = () => {
   return (
-    <><PassGen/></>
+    <Container>
+      <PassGen/>
+    </Container>
   );
 }
 
