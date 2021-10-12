@@ -4,7 +4,8 @@ import {
     TextField,
     Typography,
     ToggleButtonGroup,
-    ToggleButton
+    ToggleButton,
+    Input
   } from '@material-ui/core'
 
 const PassGen: React.FC = () => {
@@ -13,6 +14,13 @@ const PassGen: React.FC = () => {
 
     const handleConfig = (_event: any, newConfig: any) => {
         setConfig(newConfig)
+    }
+
+    const handleLenChange = (event: any) => {
+        const newVal = Math.min(
+            Math.max(Number(event.target.value), 0), 256
+        )
+        setPassLen(newVal)
     }
 
     return(
@@ -24,15 +32,25 @@ const PassGen: React.FC = () => {
         >
             <TextField label="password" />
             <Slider
-                defaultValue={8}
+                value={passLen}
                 max={256}
                 onChange={
-                    (ev, val) => {
+                    (_ev, val) => {
                         setPassLen(Number(val))
                     }
                 }
             />
-            <Typography>Password Length: {passLen}</Typography>
+            <div
+                style={{display: 'flex', gap: 20}}
+            >
+                <Typography>Password Length: </Typography>
+                <Input
+                    type="number"
+                    style={{width: 50}}
+                    value={passLen}
+                    onChange={handleLenChange}
+                />
+            </div>
             <Typography>Character Types</Typography>
             <ToggleButtonGroup
                 value={config}
