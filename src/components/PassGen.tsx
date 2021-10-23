@@ -139,7 +139,7 @@ const PassGen: React.FC = () => {
                 onChange={handleConfig}
             >
                 <ToggleButton value="uppercase">A-Z</ToggleButton>
-                <ToggleButton value="lowercase">a-z</ToggleButton>
+                <ToggleButton style={{textTransform: 'lowercase'}} value="lowercase">a-z</ToggleButton>
                 <ToggleButton value="numbers">0-9</ToggleButton>
                 <ToggleButton value="special1"># $ % &amp; @ ^ ` ~</ToggleButton>
                 <ToggleButton value="special2">. , : ;</ToggleButton>
